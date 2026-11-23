@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ECHO DUEL — a memory duel</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+  <div id="table">
+    <header id="topbar">
+      <div class="wordmark">ECHO <span>DUEL</span></div>
+      <div class="top-actions">
+        <button id="mute-btn" type="button">🔊 SOUND</button>
+        <button id="menu-btn" type="button">MENU</button>
+      </div>
+    </header>
+
+    <section id="foe-area">
+      <div id="foe-life" class="life-slot"></div>
+      <div id="foe-hand" class="foe-hand"></div>
+      <div id="foe-count" class="count"></div>
+    </section>
+
+    <section id="centre">
+      <div id="echo-panel">
+        <div id="echo-count">—</div>
+        <div id="echo-chain">No echo yet.</div>
+      </div>
+      <div id="piles">
+        <div class="pile"><div class="pile-num" id="deck-count">30</div><div class="pile-label">DECK</div></div>
+        <div class="pile discard"><div class="pile-num" id="discard-count">0</div><div class="pile-label">DISCARD</div></div>
+      </div>
+      <div id="turn-label">YOUR TURN</div>
+      <div id="game-log"></div>
+    </section>
+
+    <section id="player-area">
+      <div id="player-life" class="life-slot"></div>
+      <div id="player-hand" class="player-hand"></div>
+      <div id="player-side">
+        <div id="energy-pips"></div>
+        <div id="player-count" class="count"></div>
+        <button id="end-turn" type="button">END TURN ⏎</button>
+        <div class="hint">Click a card to select, click again to play · 1–7 select · Enter play · Esc menu · R restart</div>
+      </div>
+    </section>
+  </div>
+
+  <div id="title-screen" class="overlay">
+    <div class="title-inner">
+      <div class="title-kicker">A MEMORY DUEL IN THE MIST</div>
+      <h1 class="title-word">ECHO<br><span>DUEL</span></h1>
+      <p class="tagline">Play a card. It echoes the one before it.<br>Chain the echo — or break it before Mira does.</p>
+      <button id="start-btn" type="button">▶ &nbsp;START DUEL</button>
+      <button id="howto-btn" type="button" class="ghost-btn">HOW TO PLAY</button>
+      <p class="title-foot">30 cards · 3 archetypes · 20 life · no luck, only memory</p>
+    </div>
+  </div>
+
+  <div id="howto-screen" class="overlay hidden">
+    <div class="panel">
+      <h2>HOW TO PLAY</h2>
+      <ul>
+        <li><b>Goal:</b> reduce Mira to 0 life. You both have 20 life and 3 energy a turn.</li>
+        <li><b>Play a card</b> by clicking it (or keys 1–7, then Enter). It costs energy.</li>
+        <li><b>THE ECHO:</b> a card that matches the last card's archetype (Echo, Silence, Thunder) repeats that card's effect at half power. Chain matches to grow the echo.</li>
+        <li><b>Breaking the chain:</b> a different archetype resets it — breaking a chain of 2+ pays 1 bonus energy.</li>
+        <li><b>End your turn</b> to let Mira play. She scores her cards and chains when she can — deny her by breaking the chain first.</li>
+        <li>Shield blocks damage. Draw pile empty? Your discard shuffles back in.</li>
+      </ul>
+      <button id="howto-close" type="button">GOT IT</button>
+    </div>
+  </div>
+
+  <div id="tutorial-screen" class="overlay hidden">
+    <div class="panel">
+      <h2>YOUR FIRST DUEL</h2>
+      <ul>
+        <li>Match the <b>archetype</b> of the last card played to trigger an <b>echo</b> at half power.</li>
+        <li>Watch the echo counter in the middle of the table — x2, x3 and beyond.</li>
+        <li>Break Mira's chain with a different archetype when her echo grows long.</li>
+      </ul>
+      <button id="tutorial-close" type="button">TO THE TABLE</button>
+    </div>
+  </div>
+
+  <div id="end-screen" class="overlay hidden">
+    <div class="end-inner">
+      <h1 id="end-title" class="end-title win">VICTORY</h1>
+      <p id="end-sub"></p>
+      <p id="end-stats"></p>
+      <button id="again-btn" type="button">↻ &nbsp;PLAY AGAIN</button>
+    </div>
+  </div>
+</div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
